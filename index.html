@@ -13,7 +13,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--forest:#2C3E2D;--ivory:#F7F2EB;--blush:#E8C4B2;--warm:#FEFCF8;--ink:#1A1A1A;--muted:#3A3530;--accent:#B5785A}
-    html{scroll-behavior:smooth;overflow-x:clip}
+    html{scroll-behavior:smooth;overflow-x:clip;scrollbar-gutter:stable}
     body{font-family:'Jost',sans-serif;background:var(--warm);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
     nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(0,0,0,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s;will-change:transform;transform:translateZ(0)}
@@ -68,13 +68,8 @@
     #portfolio{background:var(--warm)}
     .portfolio-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:24px}
 
-    /* Category grid layout — 1 large left + 4 right */
-        /* Portfolio grid */
+    /* Portfolio grid */
     .cat-grid{display:flex;flex-direction:column;gap:10px}
-    .cat-row-top{display:grid;grid-template-columns:52% 1fr;gap:10px;height:560px}
-    .cat-row-top .cat-large{height:100%}
-    .cat-4{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:100%}
-    .cat-row-bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:520px}
     .cat-card{position:relative;border-radius:4px;overflow:hidden;cursor:pointer;background:#d4ccc6}
     .cat-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease}
     .cat-card:hover img{transform:scale(1.04)}
@@ -96,7 +91,7 @@
     .gm-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:#FFFFFF}
     .gm-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:2rem;cursor:pointer;line-height:1;padding:4px 8px;flex-shrink:0}
     .gm-close:hover{color:var(--ivory)}
-    .gm-body{flex:1;overflow-y:auto;padding:20px}
+    .gm-body{flex:1;overflow-y:auto;padding:20px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
     .gm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:1080px;margin:0 auto}
     .gm-item{border-radius:3px;overflow:hidden;cursor:zoom-in;aspect-ratio:3/4}
     .gm-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
@@ -187,19 +182,9 @@
     .reveal.visible{opacity:1;transform:translateY(0)}
 
     @media(max-width:900px){.hero{background-image:url('p64.jpg');background-position:center 20%}
-      .cat-row-top{grid-template-columns:1fr;height:auto}
-      .cat-row-top .cat-large{height:340px}
-      .cat-4{height:420px}
-      .cat-row-bottom{height:300px}
-      
       nav{padding:16px 24px}.nav-links{display:none}.nav-burger{display:flex}
       .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
-      .about-photo-placeholder{aspect-ratio:4/3}
       .packages-grid{grid-template-columns:1fr}.session-types{grid-template-columns:1fr}
-      
-      
-      .cat-right{grid-template-columns:1fr 1fr}
-      .cat-col-tall .cat-card{height:300px}
       .gm-grid{grid-template-columns:repeat(2,1fr)}
       .review-card{flex:0 0 calc(50% - 12px);min-width:240px}
       .events-block{padding:32px;gap:32px}
@@ -209,12 +194,7 @@
       .port-left>.cat-card{height:260px}
       .port-right>.cat-card{height:260px}
     }
-    @media(max-width:600px){.cat-row-top{gap:8px}
-      .cat-row-top .cat-large{height:280px}
-      .cat-4{grid-template-columns:1fr 1fr;height:460px}
-      .cat-row-bottom{grid-template-columns:1fr;height:auto}
-      .cat-row-bottom .cat-card{height:280px}
-      
+    @media(max-width:600px){
       section{padding:64px 20px}.hero{padding:60px 20px 56px;justify-content:flex-end}
       .hero-eyebrow{margin-top:0}
       .hero-cta{flex-direction:column;align-items:stretch}
@@ -263,8 +243,6 @@
     .phone-number{border:none;padding:14px 12px;font-family:'Jost',sans-serif;font-size:.92rem;background:#fff;color:var(--ink);outline:none;border-radius:0;width:100%;box-sizing:border-box}
 
     #formMsg{animation:fadeUp .4s ease}
-
-    .date-wrap:focus-within{border-color:var(--forest)}
 
     .cal-field{position:relative;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(44,62,45,.18);border-radius:2px;padding:14px 18px;cursor:pointer;background:var(--warm);transition:border-color .2s;user-select:none;overflow:hidden}
     .cal-field:hover{border-color:rgba(44,62,45,.35)}
@@ -747,6 +725,43 @@
   </p>
 </footer>
 
+<!-- Privacy Policy Modal -->
+<div class="privacy-modal" id="privacyModal">
+  <div class="privacy-box">
+    <div class="privacy-header">
+      <h2>Privacy Policy</h2>
+      <button class="privacy-close" onclick="document.getElementById('privacyModal').classList.remove('open')">×</button>
+    </div>
+    <div class="privacy-body">
+      <h3>1. Information We Collect</h3>
+      <p>When you fill out the contact form on this website, we collect your name, email address, and any information you voluntarily provide in your message. We do not collect sensitive personal data.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>The information you provide is used solely to respond to your inquiry and to schedule photography sessions. We do not sell, rent, or share your personal information with third parties.</p>
+
+      <h3>3. Cookies</h3>
+      <p>This website uses essential cookies to ensure proper functionality. We may also use Google Fonts, which loads fonts from Google's servers and may set its own cookies. By continuing to use this site, you consent to our use of cookies as described in this policy.</p>
+
+      <h3>4. Photography & Images</h3>
+      <p>All photographs on this website are the intellectual property of Oksana Khmarna Photography. Reproduction or distribution without written permission is prohibited. Client photos are used only with client consent.</p>
+
+      <h3>5. Third-Party Links</h3>
+      <p>This website may contain links to Instagram and other external sites. We are not responsible for the privacy practices of these third-party platforms.</p>
+
+      <h3>6. Data Retention</h3>
+      <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. You may request deletion of your data at any time by contacting us via Instagram.</p>
+
+      <h3>7. Your Rights</h3>
+      <p>You have the right to access, correct, or delete any personal information we hold about you. To exercise these rights, please reach out via Instagram: <strong>@khmarna_photographer</strong>.</p>
+
+      <h3>8. Contact</h3>
+      <p>For any privacy-related questions, please contact us via Instagram <a href="https://www.instagram.com/khmarna_photographer/" target="_blank" style="color:var(--accent)">@khmarna_photographer</a>. Based in Lancaster, PA.</p>
+
+      <p style="margin-top:20px;font-size:.78rem;color:#888">Last updated: June 2026</p>
+    </div>
+  </div>
+</div>
+
 <script>
 const GALLERY = {
   "wedding": ["wedding/DSC_5842.jpeg","wedding/DSC_5859.jpeg","wedding/DSC_5866.jpeg","wedding/DSC_5874-2.jpeg","wedding/DSC_5877.jpeg","wedding/DSC_5932.jpeg","wedding/DSC_5941.jpeg","wedding/DSC_5949.jpeg","wedding/DSC_6038.jpeg","wedding/DSC_6042 копія.jpeg","wedding/DSC_6098.jpeg","wedding/DSC_6135.jpeg","wedding/DSC_6142.jpeg","wedding/DSC_6149.jpeg","wedding/DSC_6187.jpeg","wedding/DSC_6209-2.jpeg","wedding/DSC_6210.jpeg","wedding/DSC_6237-2.jpeg","wedding/DSC_6242.jpeg","wedding/IMG_1593.jpeg","wedding/IMG_1594.jpeg","wedding/IMG_1595.jpeg","wedding/IMG_1596.jpeg","wedding/IMG_1597.jpeg","wedding/IMG_1598.jpeg","wedding/IMG_1599.jpeg","wedding/IMG_1600.jpeg","wedding/IMG_1601.jpeg","wedding/IMG_1602.jpeg","wedding/IMG_1603.jpeg","wedding/IMG_1604.jpeg","wedding/IMG_1605.jpeg","wedding/IMG_1619.jpeg","wedding/IMG_1620.jpeg","wedding/IMG_1624.jpeg","wedding/IMG_1625.jpeg","wedding/IMG_1626.jpeg","wedding/IMG_1627.jpeg","wedding/IMG_1646.jpeg","wedding/IMG_1647.jpeg","wedding/IMG_1648.jpeg","wedding/IMG_1649.jpeg","wedding/IMG_1650.jpeg","wedding/IMG_1651.jpeg","wedding/IMG_1653.jpeg","wedding/IMG_1654.jpeg","wedding/IMG_1655.jpeg","wedding/IMG_1656.jpeg","wedding/IMG_1657.jpeg","wedding/IMG_1658.jpeg","wedding/IMG_1659.jpeg","wedding/IMG_1660.jpeg","wedding/IMG_1661.jpeg","wedding/IMG_1662.jpeg","wedding/IMG_1663.jpeg","wedding/IMG_1664.jpeg","wedding/IMG_6333.jpeg","wedding/IMG_6336.jpeg","wedding/IMG_7019.jpeg","wedding/IMG_7020.jpeg","wedding/IMG_7023.jpeg","wedding/IMG_7024.jpeg","wedding/IMG_7025.jpeg","wedding/IMG_7166.jpeg","wedding/IMG_7168.jpeg","wedding/IMG_7170.jpeg","wedding/IMG_7171.jpeg","wedding/IMG_7175.jpeg","wedding/IMG_7213.jpeg","wedding/IMG_7216.jpeg","wedding/IMG_7218.jpeg","wedding/IMG_7224.jpeg","wedding/IMG_7225.jpeg","wedding/IMG_7226.jpeg","wedding/IMG_7227.jpeg","wedding/IMG_7228.jpeg","wedding/IMG_7426.jpeg","wedding/IMG_7428.jpeg","wedding/IMG_7429.jpeg","wedding/IMG_7430.jpeg","wedding/IMG_7432.jpeg","wedding/IMG_7436.jpeg","wedding/IMG_7577.jpeg","wedding/IMG_7580.jpeg","wedding/IMG_7581.jpeg","wedding/IMG_7582.jpeg","wedding/IMG_7583.jpeg","wedding/IMG_7584.jpeg","wedding/IMG_7585.jpeg","wedding/IMG_7586.jpeg","wedding/IMG_7595.jpeg","wedding/IMG_7599.jpeg","wedding/IMG_7605.jpeg","wedding/IMG_7634.jpeg","wedding/IMG_7635.jpeg","wedding/IMG_7636.jpeg","wedding/IMG_7638.jpeg","wedding/IMG_7639.jpeg","wedding/IMG_7640.jpeg","wedding/IMG_7641.jpeg","wedding/IMG_7643.jpeg","wedding/IMG_7644.jpeg","wedding/IMG_7646.jpeg","wedding/IMG_7647.jpeg","wedding/IMG_7649.jpeg","wedding/IMG_8313.jpeg","wedding/IMG_8314.jpeg","wedding/IMG_8315.jpeg","wedding/IMG_8316.jpeg","wedding/IMG_8317.jpeg","wedding/IMG_8318.jpeg","wedding/IMG_8319.jpeg","wedding/IMG_8320.jpeg","wedding/IMG_8389.jpeg","wedding/IMG_8391.jpeg","wedding/IMG_8396.jpeg","wedding/IMG_8401.jpeg","wedding/IMG_8407.jpeg","wedding/IMG_8430.jpeg","wedding/IMG_8431.jpeg","wedding/IMG_8433.jpeg","wedding/IMG_8435.jpeg"],
@@ -798,8 +813,8 @@ const CAT_NAMES = {wedding:"Wedding",pregnancy:"Pregnancy",familykids:"Family & 
       grid.appendChild(d);
     });
     const modal = document.getElementById('galleryModal');
-    modal.querySelector('.gm-body').scrollTop = 0;
     modal.classList.add('open');
+    modal.querySelector('.gm-body').scrollTop = 0;
     document.body.style.overflow = 'hidden';
   }
   function closeGallery() {
@@ -950,43 +965,6 @@ const CAT_NAMES = {wedding:"Wedding",pregnancy:"Pregnancy",familykids:"Family & 
     }
   }
 </script>
-
-<!-- Privacy Policy Modal -->
-<div class="privacy-modal" id="privacyModal">
-  <div class="privacy-box">
-    <div class="privacy-header">
-      <h2>Privacy Policy</h2>
-      <button class="privacy-close" onclick="document.getElementById('privacyModal').classList.remove('open')">×</button>
-    </div>
-    <div class="privacy-body">
-      <h3>1. Information We Collect</h3>
-      <p>When you fill out the contact form on this website, we collect your name, email address, and any information you voluntarily provide in your message. We do not collect sensitive personal data.</p>
-
-      <h3>2. How We Use Your Information</h3>
-      <p>The information you provide is used solely to respond to your inquiry and to schedule photography sessions. We do not sell, rent, or share your personal information with third parties.</p>
-
-      <h3>3. Cookies</h3>
-      <p>This website uses essential cookies to ensure proper functionality. We may also use Google Fonts, which loads fonts from Google's servers and may set its own cookies. By continuing to use this site, you consent to our use of cookies as described in this policy.</p>
-
-      <h3>4. Photography & Images</h3>
-      <p>All photographs on this website are the intellectual property of Oksana Khmarna Photography. Reproduction or distribution without written permission is prohibited. Client photos are used only with client consent.</p>
-
-      <h3>5. Third-Party Links</h3>
-      <p>This website may contain links to Instagram and other external sites. We are not responsible for the privacy practices of these third-party platforms.</p>
-
-      <h3>6. Data Retention</h3>
-      <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. You may request deletion of your data at any time by contacting us via Instagram.</p>
-
-      <h3>7. Your Rights</h3>
-      <p>You have the right to access, correct, or delete any personal information we hold about you. To exercise these rights, please reach out via Instagram: <strong>@khmarna_photographer</strong>.</p>
-
-      <h3>8. Contact</h3>
-      <p>For any privacy-related questions, please contact us via Instagram <a href="https://www.instagram.com/khmarna_photographer/" target="_blank" style="color:var(--accent)">@khmarna_photographer</a>. Based in Lancaster, PA.</p>
-
-      <p style="margin-top:20px;font-size:.78rem;color:#888">Last updated: June 2026</p>
-    </div>
-  </div>
-</div>
 
 
 </body>
