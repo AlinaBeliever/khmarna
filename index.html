@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Oksana Khmarna — Family Photographer | Lancaster, PA</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <meta name="description" content="Family, maternity, newborn, wedding and event photographer based in Lancaster, PA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--forest:#2C3E2D;--ivory:#F7F2EB;--blush:#E8C4B2;--warm:#FEFCF8;--ink:#1A1A1A;--muted:#3A3530;--accent:#B5785A}
+    html{scroll-behavior:smooth;overflow-x:clip}
+    body{font-family:'Jost',sans-serif;background:var(--warm);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;width:100%;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(0,0,0,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s;will-change:transform;transform:translateZ(0)}
+    nav.scrolled{background:rgba(254,252,248,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(44,62,45,.08)}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;font-weight:400;color:var(--warm);letter-spacing:.02em;text-decoration:none;transition:color .3s;z-index:201;position:relative}
+    nav.scrolled .nav-logo{color:var(--forest)}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-weight:400;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(254,252,248,.9);transition:color .3s}
+    nav.scrolled .nav-links a{color:#2C3E2D}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:201}
+    .nav-burger span{display:block;width:24px;height:2px;background:var(--warm);border-radius:2px;transition:background .3s,transform .3s,opacity .3s}
+    nav.scrolled .nav-burger span{background:var(--forest)}
+    .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-burger.open span:nth-child(2){opacity:0}
+    .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .nav-mobile{display:none;position:fixed;inset:0;background:var(--forest);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+    .nav-mobile.open{display:flex}
+    .nav-mobile a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.2rem;font-weight:300;color:var(--ivory);text-decoration:none;transition:color .2s}
+    .nav-mobile a:hover{color:var(--blush)}
+
+    .hero{min-height:100vh;min-height:100dvh;background:url('hero-bg.jpg') center 30%/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 24px 150px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.05) 0%,rgba(10,10,10,.08) 30%,rgba(10,10,10,.45) 60%,rgba(10,10,10,.55) 80%,rgba(247,242,235,.2) 93%,#F7F2EB 100%);pointer-events:none}
+    .hero-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#FFFFFF;margin-bottom:28px;margin-top:-80px;opacity:0;animation:fadeUp .9s .2s forwards;text-shadow:0 1px 8px rgba(0,0,0,.8),0 0 20px rgba(0,0,0,.6)}
+    .hero-eyebrow-dot{color:var(--blush)}
+    .hero-heading{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,5vw,4rem);line-height:1.15;color:#FFFFFF;letter-spacing:.01em;max-width:700px;opacity:0;animation:fadeUp 1s .4s forwards}
+    .hero-sub{font-weight:400;font-size:clamp(.88rem,1.8vw,1.05rem);letter-spacing:.06em;color:rgba(255,255,255,.82);margin-top:20px;max-width:380px;opacity:0;animation:fadeUp 1s .55s forwards;line-height:1.65}
+    .hero-cta{margin-top:52px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s .7s forwards}
+    .btn-primary{background:var(--blush);color:var(--ink);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:16px 40px;border-radius:2px;transition:background .25s,transform .2s;display:inline-block}
+    .btn-primary:hover{background:#ddb09a;transform:translateY(-2px)}
+    .btn-outline{border:1px solid rgba(255,255,255,.65);color:#FFFFFF;font-size:.78rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:16px 40px;border-radius:2px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);transition:border-color .25s,background .25s}
+    .btn-outline:hover{border-color:var(--blush);background:rgba(232,196,178,.08)}
+
+    .wave{display:block;width:100%;overflow:hidden;line-height:0}
+    .wave svg{display:block;width:100%}
+
+    section{padding:96px 24px}
+    .container{max-width:1080px;margin:0 auto}
+    .section-label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
+    .section-heading{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.1;color:var(--forest)}
+    .section-heading em{font-style:italic;color:var(--accent)}
+
+    #about{background:var(--ivory)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-photo-wrap{aspect-ratio:3/4;border-radius:4px;overflow:hidden}
+    .about-photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-text p{font-size:1rem;font-weight:400;color:#2e2925;margin-top:24px;line-height:1.8}
+    .about-text p:first-of-type{margin-top:32px}
+    .about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+    .tag{border:1px solid var(--blush);color:var(--accent);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:20px}
+
+    #portfolio{background:var(--warm)}
+    .portfolio-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:24px}
+
+    /* Category grid layout — 1 large left + 4 right */
+        /* Portfolio grid */
+    .cat-grid{display:flex;flex-direction:column;gap:10px}
+    .cat-row-top{display:grid;grid-template-columns:52% 1fr;gap:10px;height:560px}
+    .cat-row-top .cat-large{height:100%}
+    .cat-4{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:100%}
+    .cat-row-bottom{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:520px}
+    .cat-card{position:relative;border-radius:4px;overflow:hidden;cursor:pointer;background:#d4ccc6}
+    .cat-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .4s ease}
+    .cat-card:hover img{transform:scale(1.04)}
+    .cat-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.7) 0%,transparent 55%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:20px;transition:background .3s}
+    .cat-card:hover .cat-card-overlay{background:linear-gradient(to top,rgba(20,20,20,.85) 0%,transparent 55%)}
+    .cat-card-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:#FFFFFF;letter-spacing:.04em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+    .cat-card-count{font-size:.68rem;color:rgba(255,255,255,.88);letter-spacing:.1em;margin-top:3px;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+    /* Portfolio responsive grid */
+    .port-outer{display:grid;grid-template-columns:52% 1fr;gap:10px;height:760px}
+    .port-left{display:grid;grid-template-rows:2fr 1fr;gap:10px;height:100%}
+    .port-right{display:grid;grid-template-rows:1fr 2fr;gap:10px;height:100%}
+    .port-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;height:100%}
+
+    /* Gallery Modal */
+    .gallery-modal{display:none;position:fixed;inset:0;background:rgba(20,20,20,.96);z-index:999;flex-direction:column}
+    .gallery-modal.open{display:flex}
+    .gm-header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+    .gm-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:#FFFFFF}
+    .gm-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:2rem;cursor:pointer;line-height:1;padding:4px 8px;flex-shrink:0}
+    .gm-close:hover{color:var(--ivory)}
+    .gm-body{flex:1;overflow-y:auto;padding:20px}
+    .gm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:1080px;margin:0 auto}
+    .gm-item{border-radius:3px;overflow:hidden;cursor:zoom-in;aspect-ratio:3/4}
+    .gm-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+    .gm-item:hover img{transform:scale(1.03)}
+
+    /* Lightbox */
+    .gm-lightbox{display:none;position:fixed;inset:0;background:rgba(10,10,10,.97);z-index:1000;align-items:center;justify-content:center}
+    .gm-lightbox.open{display:flex}
+    .gm-lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:2px}
+    .gm-lb-close{position:fixed;top:16px;right:24px;background:none;border:none;color:rgba(255,255,255,.6);font-size:2.2rem;cursor:pointer;line-height:1}
+    .gm-lb-close:hover{color:var(--ivory)}
+    .gm-lb-prev,.gm-lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:var(--ivory);font-size:1.6rem;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+    .gm-lb-prev{left:16px}.gm-lb-next{right:16px}
+    .gm-lb-prev:hover,.gm-lb-next:hover{background:rgba(255,255,255,.2)}
+
+    #services{background:var(--forest)}
+    #services .section-label{color:var(--blush)}
+    #services .section-heading{color:var(--ivory)}
+    .services-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
+    .services-intro p{max-width:400px;color:#FFFFFF;font-weight:400;font-size:.95rem;line-height:1.75}
+    .packages-label{font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--blush);margin-bottom:24px;display:block}
+    .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:64px}
+    .pkg-card{background:rgba(247,242,235,.05);border:1px solid rgba(247,242,235,.1);border-radius:4px;padding:36px 28px;position:relative;transition:border-color .25s,background .25s}
+    .pkg-card:hover{border-color:rgba(232,196,178,.3);background:rgba(247,242,235,.08)}
+    .pkg-card.special{border-color:var(--blush);background:rgba(232,196,178,.08)}
+    .special-badge{position:absolute;top:-1px;right:-1px;background:var(--blush);color:var(--ink);font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:0 4px 0 4px}
+    .pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;font-style:italic;color:var(--ivory);margin-bottom:8px}
+    .pkg-price{font-size:2.2rem;font-weight:300;color:var(--blush);margin-bottom:4px}
+    .pkg-price sup{font-size:1rem;vertical-align:super}
+    .pkg-subtitle{font-size:.78rem;color:rgba(255,255,255,.75);letter-spacing:.04em;margin-bottom:28px}
+    .pkg-features{list-style:none}
+    .pkg-features li{font-size:.85rem;font-weight:400;color:#FFFFFF;padding:8px 0;border-bottom:1px solid rgba(247,242,235,.06);display:flex;align-items:flex-start;gap:10px}
+    .pkg-features li::before{content:'—';color:var(--blush);flex-shrink:0;margin-top:1px}
+    .sessions-divider{height:1px;background:rgba(247,242,235,.1);margin:48px 0}
+    .session-types{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:48px}
+    .session-card{background:rgba(247,242,235,.04);border:1px solid rgba(247,242,235,.08);border-radius:4px;padding:28px 24px}
+    .session-icon{width:36px;height:36px;border-radius:50%;background:rgba(232,196,178,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:16px}
+    .session-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--ivory);margin-bottom:8px}
+    .session-desc{font-size:.85rem;font-weight:400;color:#FFFFFF;line-height:1.7}
+    .events-block{background:rgba(247,242,235,.04);border:1px solid rgba(247,242,235,.08);border-radius:4px;padding:48px;display:flex;gap:64px;flex-wrap:wrap;align-items:center}
+    .events-text{flex:1;min-width:200px}
+    .events-block h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--ivory);margin-bottom:12px}
+    .events-block p{font-size:.85rem;font-weight:400;color:#FFFFFF;max-width:280px;line-height:1.7}
+    .events-rates{display:flex;align-items:center}
+    .rate-item{text-align:center;padding:0 36px}
+    .rate-sep{width:1px;height:56px;background:rgba(232,196,178,.2);flex-shrink:0}
+    .rate-price{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--blush);line-height:1}
+    .rate-label{font-size:.7rem;font-weight:400;color:#FFFFFF;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+    .rate-note{font-size:.65rem;color:rgba(232,196,178,.90);letter-spacing:.06em;margin-top:3px}
+
+    #reviews{background:var(--ivory);overflow:hidden}
+    .reviews-carousel-wrap{position:relative;margin-top:56px;overflow:hidden}
+    .reviews-carousel{display:flex;gap:24px;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform}
+    .review-card{background:var(--warm);border-radius:4px;padding:40px 36px 36px;position:relative;flex:0 0 calc(33.333% - 16px);min-width:280px}
+    .review-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:1;color:var(--blush);position:absolute;top:12px;left:24px;opacity:.55}
+    .review-text{font-size:.95rem;font-weight:400;line-height:1.75;color:#1e1b18;padding-top:32px;font-style:italic}
+    .reviews-dots{display:flex;justify-content:center;gap:8px;margin-top:32px}
+    .reviews-dot{width:6px;height:6px;border-radius:50%;background:rgba(44,62,45,.15);cursor:pointer;border:none;transition:background .3s,transform .3s}
+    .reviews-dot.active{background:var(--accent);transform:scale(1.3)}
+
+    #contact{background:var(--warm)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+    .contact-info p{margin-top:24px;font-weight:400;color:var(--muted);line-height:1.75;font-size:.97rem}
+    .contact-details{margin-top:40px;display:flex;flex-direction:column;gap:20px}
+    .contact-item{display:flex;align-items:center;gap:16px}
+    .contact-icon{width:40px;height:40px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .contact-item a{color:var(--forest);text-decoration:none;font-weight:500}
+    .contact-item a:hover{color:var(--accent)}
+    .contact-item span{font-size:.72rem;color:var(--muted);display:block;margin-bottom:2px;letter-spacing:.08em;text-transform:uppercase}
+    .contact-form{display:flex;flex-direction:column;gap:16px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .form-group{display:flex;flex-direction:column;gap:8px}
+    .form-group label{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .form-group input,.form-group select,.form-group textarea{border:1px solid rgba(44,62,45,.18);border-radius:2px;padding:14px 18px;font-family:'Jost',sans-serif;font-size:.92rem;font-weight:400;background:var(--warm);color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;width:100%}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--forest)}
+    .form-group textarea{resize:vertical;min-height:120px}
+
+    footer{background:var(--forest);padding:56px 24px 40px;text-align:center}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2rem;font-weight:300;color:var(--ivory)}
+    .footer-tagline{font-size:.75rem;font-weight:400;color:#FFFFFF;letter-spacing:.12em;margin-top:8px;text-transform:uppercase;opacity:1}
+    .footer-links{display:flex;gap:32px;justify-content:center;list-style:none;margin-top:32px;flex-wrap:wrap}
+    .footer-links a{font-size:.75rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF;text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--blush)}
+    .footer-copy{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:40px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    @media(max-width:900px){.hero{background-image:url('p64.jpg');background-position:center 20%}
+      .cat-row-top{grid-template-columns:1fr;height:auto}
+      .cat-row-top .cat-large{height:340px}
+      .cat-4{height:420px}
+      .cat-row-bottom{height:300px}
+      
+      nav{padding:16px 24px}.nav-links{display:none}.nav-burger{display:flex}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+      .about-photo-placeholder{aspect-ratio:4/3}
+      .packages-grid{grid-template-columns:1fr}.session-types{grid-template-columns:1fr}
+      
+      
+      .cat-right{grid-template-columns:1fr 1fr}
+      .cat-col-tall .cat-card{height:300px}
+      .gm-grid{grid-template-columns:repeat(2,1fr)}
+      .review-card{flex:0 0 calc(50% - 12px);min-width:240px}
+      .events-block{padding:32px;gap:32px}
+      .port-outer{display:flex;flex-direction:column;height:auto;gap:8px}
+      .port-left,.port-right{display:contents}
+      .port-pair{height:190px}
+      .port-left>.cat-card{height:260px}
+      .port-right>.cat-card{height:260px}
+    }
+    @media(max-width:600px){.cat-row-top{gap:8px}
+      .cat-row-top .cat-large{height:280px}
+      .cat-4{grid-template-columns:1fr 1fr;height:460px}
+      .cat-row-bottom{grid-template-columns:1fr;height:auto}
+      .cat-row-bottom .cat-card{height:280px}
+      
+      section{padding:64px 20px}.hero{padding:60px 20px 56px;justify-content:flex-end}
+      .hero-eyebrow{margin-top:0}
+      .hero-cta{flex-direction:column;align-items:stretch}
+      .btn-primary,.btn-outline{text-align:center}
+      .form-row{grid-template-columns:1fr}
+      .events-block{flex-direction:column;gap:24px;padding:24px}
+      .events-rates{flex-wrap:wrap;justify-content:center}
+      .events-rates>.rate-sep:nth-child(4){display:none}
+      .rate-item{padding:8px 16px}
+      .rate-price-hr{margin-left:-14px}
+
+      .gm-grid{grid-template-columns:1fr 1fr}
+      .review-card{flex:0 0 100%;min-width:0}
+      .footer-links{gap:16px}footer{padding:40px 20px 32px}
+      .port-pair{height:155px;gap:6px}
+      .port-left>.cat-card,.port-right>.cat-card{height:215px}
+    }
+
+
+    /* Cookie banner */
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(26,26,26,.96);color:#fff;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:500;flex-wrap:wrap;font-size:.82rem;font-weight:400;line-height:1.5;backdrop-filter:blur(8px)}
+    .cookie-banner a{color:var(--blush);text-decoration:underline;cursor:pointer}
+    .cookie-banner-btns{display:flex;gap:10px;flex-shrink:0}
+    .cookie-btn{padding:9px 22px;border-radius:2px;font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;transition:background .2s}
+    .cookie-btn-accept{background:var(--blush);color:var(--ink)}
+    .cookie-btn-accept:hover{background:#ddb09a}
+    .cookie-btn-decline{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.2)}
+    .cookie-btn-decline:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+
+    /* Privacy modal */
+    .privacy-modal{display:none;position:fixed;inset:0;background:rgba(10,10,10,.85);z-index:600;align-items:center;justify-content:center;padding:24px}
+    .privacy-modal.open{display:flex}
+    .privacy-box{background:var(--warm);max-width:700px;width:100%;max-height:85vh;border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+    .privacy-header{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;border-bottom:1px solid rgba(44,62,45,.1)}
+    .privacy-header h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--forest)}
+    .privacy-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--muted);line-height:1;padding:0 4px}
+    .privacy-close:hover{color:var(--ink)}
+    .privacy-body{overflow-y:auto;padding:28px;font-size:.9rem;font-weight:400;line-height:1.8;color:#2e2925}
+    .privacy-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);margin:20px 0 8px}
+    .privacy-body h3:first-child{margin-top:0}
+    .privacy-body p{margin-bottom:12px}
+
+    .phone-wrap{display:grid;grid-template-columns:120px 1fr;border:1px solid rgba(44,62,45,.18);border-radius:2px;overflow:hidden;transition:border-color .2s}
+    .phone-wrap:focus-within{border-color:var(--forest)}
+    .phone-code{border:none;border-right:1px solid rgba(44,62,45,.15);padding:14px 8px;font-size:.82rem;background:rgba(44,62,45,.04);color:var(--ink);outline:none;cursor:pointer;-webkit-appearance:none;border-radius:0;width:100%}
+    .phone-number{border:none;padding:14px 12px;font-family:'Jost',sans-serif;font-size:.92rem;background:#fff;color:var(--ink);outline:none;border-radius:0;width:100%;box-sizing:border-box}
+
+    #formMsg{animation:fadeUp .4s ease}
+
+    .date-wrap:focus-within{border-color:var(--forest)}
+
+    .cal-field{position:relative;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(44,62,45,.18);border-radius:2px;padding:14px 18px;cursor:pointer;background:var(--warm);transition:border-color .2s;user-select:none;overflow:hidden}
+    .cal-field:hover{border-color:rgba(44,62,45,.35)}
+    .cal-field:focus-within{border-color:var(--forest)}
+    .cal-text{font-family:'Jost',sans-serif;font-size:.92rem;color:var(--muted);flex:1;pointer-events:none;position:relative;z-index:1}
+    .cal-text.picked{color:var(--ink)}
+    .cal-ico{font-size:1.1rem;flex-shrink:0;margin-left:8px;pointer-events:none;position:relative;z-index:1}
+    #realDate{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:none;cursor:pointer;-webkit-appearance:none;appearance:none;background:transparent;z-index:2}
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Oksana Khmarna</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#about" class="mob-link">About</a><a href="#portfolio" class="mob-link">Portfolio</a>
+  <a href="#services" class="mob-link">Services</a><a href="#reviews" class="mob-link">Reviews</a>
+  <a href="#contact" class="mob-link">Contact</a>
+</div>
+
+<section class="hero" id="home">
+  <p class="hero-eyebrow">Lancaster, PA <span class="hero-eyebrow-dot">&nbsp;·&nbsp;</span> Family Photographer</p>
+  <h1 class="hero-heading">Capturing genuine emotions<br>&amp; creating memories</h1>
+  <p class="hero-sub">That families treasure for years to come</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Book a Session</a>
+    <a href="#portfolio" class="btn-outline">View Portfolio</a>
+  </div>
+</section>
+
+
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <img src="oksana-photo.jpg" alt="Oksana Khmarna — Family Photographer" />
+      </div>
+      <div class="about-text reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-heading">Hi, I'm <em>Oksana</em></h2>
+        <p>I'm originally from Ukraine, and I've been capturing genuine emotions and creating beautiful memories for over two years. Photography is more than just a job for me — it is something I genuinely love. I put my whole heart into every session and every image I create.</p>
+        <p>I'm also a wife and a mom to a little boy, so I understand how important patience, kindness, and a comfortable atmosphere are during a photo session. Alongside photography, I work as a preschool teacher, which makes me a wonderful choice for children's and family photography. I know how to help kids feel relaxed, happy, and natural in front of the camera.</p>
+        <p>Before becoming a photographer, I was involved in modeling — which gave me valuable experience with posing. I always guide my clients through poses and help them feel confident and natural throughout the entire session.</p>
+        <div class="about-tags">
+          <span class="tag">Family</span><span class="tag">Maternity</span><span class="tag">Newborn</span>
+          <span class="tag">Weddings</span><span class="tag">Events</span><span class="tag">Love Stories</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="portfolio-intro reveal">
+      <div>
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-heading">Moments Worth<br><em>Remembering</em></h2>
+      </div>
+      <a href="https://www.instagram.com/khmarna_photographer/" target="_blank" class="btn-primary" style="white-space:nowrap">See More on Instagram</a>
+    </div>
+
+        <div class="cat-grid reveal">
+          <div class="port-outer">
+
+            <!-- Left column: Couple + [Wedding | Newborn] -->
+            <div class="port-left">
+              <div class="cat-card" onclick="openGallery('couple')">
+                <img src="couple/IMG_1590.jpeg" alt="Couple" loading="lazy" />
+                <div class="cat-card-overlay">
+                  <div class="cat-card-label">Couple</div>
+                  <div class="cat-card-count">53 photos</div>
+                </div>
+              </div>
+              <div class="port-pair">
+                <div class="cat-card" onclick="openGallery('wedding')">
+                  <img src="wedding/IMG_7166.jpeg" alt="Wedding" loading="lazy" />
+                  <div class="cat-card-overlay">
+                    <div class="cat-card-label">Wedding</div>
+                    <div class="cat-card-count">122 photos</div>
+                  </div>
+                </div>
+                <div class="cat-card" onclick="openGallery('newborn')">
+                  <img src="new born/IMG_1755.jpeg" alt="Newborn" loading="lazy" />
+                  <div class="cat-card-overlay">
+                    <div class="cat-card-label">Newborn</div>
+                    <div class="cat-card-count">72 photos</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column: [Pregnancy | Events] + Family&Kids -->
+            <div class="port-right">
+              <div class="port-pair">
+                <div class="cat-card" onclick="openGallery('pregnancy')">
+                  <img src="pregnancy/IMG_1863.jpeg" alt="Pregnancy" loading="lazy" />
+                  <div class="cat-card-overlay">
+                    <div class="cat-card-label">Pregnancy</div>
+                    <div class="cat-card-count">77 photos</div>
+                  </div>
+                </div>
+                <div class="cat-card" onclick="openGallery('events')">
+                  <img src="ivents/IMG_1741.jpeg" alt="Events" loading="lazy" />
+                  <div class="cat-card-overlay">
+                    <div class="cat-card-label">Events</div>
+                    <div class="cat-card-count">29 photos</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cat-card" onclick="openGallery('familykids')">
+                <img src="family kids/DSC_7339-3.jpeg" alt="Family & Kids" loading="lazy" />
+                <div class="cat-card-overlay">
+                  <div class="cat-card-label">Family & Kids</div>
+                  <div class="cat-card-count">64 photos</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div></div>
+  </div>
+</section>
+
+<div class="gallery-modal" id="galleryModal">
+  <div class="gm-header">
+    <div class="gm-title" id="gmTitle"></div>
+    <button class="gm-close" onclick="closeGallery()">&#215;</button>
+  </div>
+  <div class="gm-body">
+    <div class="gm-grid" id="gmGrid"></div>
+  </div>
+</div>
+
+<div class="gm-lightbox" id="gmLightbox">
+  <button class="gm-lb-close" onclick="closeLb()">&#215;</button>
+  <button class="gm-lb-prev" onclick="lbPrev()">&#8249;</button>
+  <img id="gmLbImg" src="" alt="" />
+  <button class="gm-lb-next" onclick="lbNext()">&#8250;</button>
+</div>
+
+<div class="wave" style="background:var(--warm);margin-bottom:-2px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#2C3E2D"/></svg>
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="services-intro reveal">
+      <div>
+        <span class="section-label">Services & Pricing</span>
+        <h2 class="section-heading" style="color:var(--ivory)">Every Moment<br><em style="color:var(--blush)">Has a Package</em></h2>
+      </div>
+      <p>I focus on people and their happy moments.</p>
+    </div>
+    <span class="packages-label reveal">Photoshoot Packages</span>
+    <div class="packages-grid reveal">
+      <div class="pkg-card special">
+        <div class="special-badge">✦ Special Offer</div>
+        <div class="pkg-name">Mini Session</div><div class="pkg-price"><sup>$</sup>100</div>
+        <div class="pkg-subtitle">Local parks · Lancaster area · 30 min</div>
+        <ul class="pkg-features"><li>15–25 edited photos</li><li>Local park locations</li><li>Perfect for quick family updates</li><li>Online gallery delivery</li></ul>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Full Local Session</div><div class="pkg-price"><sup>$</sup>200</div>
+        <div class="pkg-subtitle">Lancaster County · 1 hour</div>
+        <ul class="pkg-features"><li>50–70 edited photos</li><li>Lancaster County locations</li><li>Full lifestyle session</li><li>Online gallery delivery</li></ul>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Travel Session</div><div class="pkg-price"><sup>$</sup>300</div>
+        <div class="pkg-subtitle">50+ miles from Lancaster · 1 hour</div>
+        <ul class="pkg-features"><li>50–70 edited photos</li><li>Any location beyond 50 miles</li><li>Ideal for destination sessions</li><li>Online gallery delivery</li></ul>
+      </div>
+    </div>
+
+    <div class="sessions-divider"></div>
+    <span class="packages-label reveal">Event Photography</span>
+    <div class="events-block reveal">
+      <div class="events-text">
+        <h3>Weddings & Celebrations</h3>
+        <p>Coverage for weddings, quinceañeras, baptisms, and other milestones.</p>
+      </div>
+      <div class="events-rates">
+        <div class="rate-item"><div class="rate-price">$250</div><div class="rate-label">1 hour</div><div class="rate-note">70+ photos</div></div>
+        <div class="rate-sep"></div>
+        <div class="rate-item"><div class="rate-price">$400</div><div class="rate-label">2 hours</div><div class="rate-note">150+ photos · SD card gift</div></div>
+        <div class="rate-sep"></div>
+        <div class="rate-item"><div class="rate-price rate-price-hr">$150<span style="font-size:1rem;font-family:'Jost',sans-serif">/hr</span></div><div class="rate-label">3+ hours</div><div class="rate-note">250+ photos · SD card gift</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--forest);margin-bottom:-2px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#F7F2EB"/></svg>
+</div>
+
+<section id="reviews">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label" style="display:block;text-align:center">Client Reviews</span>
+      <h2 class="section-heading">What Families<br><em>Are Saying</em></h2>
+    </div>
+    <div class="reviews-carousel-wrap reveal">
+      <div class="reviews-carousel" id="reviewsCarousel">
+        <div class="review-card"><p class="review-text">This is incredible 🥰 Such beauty — you make incredible beauty ❤️ Thank you very much, I can't wait to show Sasha! We are so happy that you agreed to photograph our wedding too 🥰 You are very talented ❤️</p></div>
+        <div class="review-card"><p class="review-text">This is just incredible 😍 You are the best photographer! I love the photo — you captured all the emotions and brought them out so beautifully.</p></div>
+        <div class="review-card"><p class="review-text">Oksana, these are amazing!! Wow! I love them so so much! Thank you so much again! ❤️</p></div>
+        <div class="review-card"><p class="review-text">These are amazing!!!! ❤️ I am so happy with them! They are perfect. Thank you so much!! ❤️</p></div>
+        <div class="review-card"><p class="review-text">Hi! The photos look perfect, love them all! 🥹 Thank you so much. Will definitely book you again for our next photoshoots! ☺️ ❤️</p></div>
+      </div>
+    </div>
+    <div class="reviews-dots" id="reviewsDots"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-heading">Let's Create Something<br><em>Beautiful</em></h2>
+        <p>I would be happy to help you plan your perfect photo experience.</p>
+        <div class="contact-details">
+          <div class="contact-item"><div class="contact-icon">📍</div><div><span>Location</span><a href="#">Lancaster, PA</a></div></div>
+          <div class="contact-item"><div class="contact-icon">📸</div><div><span>Instagram</span><a href="https://www.instagram.com/khmarna_photographer/" target="_blank">@khmarna_photographer</a></div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="contact-form" lang="en">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Name" /></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Surname" /></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="example@gmail.com" /></div>
+          <div class="form-group"><label>Phone Number</label>
+            <div class="phone-wrap">
+              <select class="phone-code" id="phoneCode" onchange="updatePhonePlaceholder()">
+                <option value="+93" data-placeholder="XX XXX XXXX" title="Afghanistan">🇦🇫 +93</option>
+                <option value="+355" data-placeholder="XX XXX XXXX" title="Albania">🇦🇱 +355</option>
+                <option value="+213" data-placeholder="XXX XXX XXXX" title="Algeria">🇩🇿 +213</option>
+                <option value="+376" data-placeholder="XXX XXX" title="Andorra">🇦🇩 +376</option>
+                <option value="+244" data-placeholder="XXX XXX XXX" title="Angola">🇦🇴 +244</option>
+                <option value="+1-268" data-placeholder="(268) XXX-XXXX" title="Antigua & Barbuda">🇦🇬 +1-268</option>
+                <option value="+54" data-placeholder="(XX) XXXX-XXXX" title="Argentina">🇦🇷 +54</option>
+                <option value="+374" data-placeholder="XX XXX XXX" title="Armenia">🇦🇲 +374</option>
+                <option value="+61" data-placeholder="XXX XXX XXX" title="Australia">🇦🇺 +61</option>
+                <option value="+43" data-placeholder="XXX XXXXXXX" title="Austria">🇦🇹 +43</option>
+                <option value="+994" data-placeholder="XX XXX XXXX" title="Azerbaijan">🇦🇿 +994</option>
+                <option value="+1-242" data-placeholder="(242) XXX-XXXX" title="Bahamas">🇧🇸 +1-242</option>
+                <option value="+973" data-placeholder="XXXX XXXX" title="Bahrain">🇧🇭 +973</option>
+                <option value="+880" data-placeholder="XXXX-XXXXXX" title="Bangladesh">🇧🇩 +880</option>
+                <option value="+1-246" data-placeholder="(246) XXX-XXXX" title="Barbados">🇧🇧 +1-246</option>
+                <option value="+375" data-placeholder="XX XXX-XX-XX" title="Belarus">🇧🇾 +375</option>
+                <option value="+32" data-placeholder="XXX XX XX XX" title="Belgium">🇧🇪 +32</option>
+                <option value="+501" data-placeholder="XXX-XXXX" title="Belize">🇧🇿 +501</option>
+                <option value="+229" data-placeholder="XX XX XX XX" title="Benin">🇧🇯 +229</option>
+                <option value="+975" data-placeholder="XX XX XXXX" title="Bhutan">🇧🇹 +975</option>
+                <option value="+591" data-placeholder="X XXX XXXX" title="Bolivia">🇧🇴 +591</option>
+                <option value="+387" data-placeholder="XX XXX-XXX" title="Bosnia & Herzegovina">🇧🇦 +387</option>
+                <option value="+267" data-placeholder="XX XXX XXX" title="Botswana">🇧🇼 +267</option>
+                <option value="+55" data-placeholder="(XX) XXXXX-XXXX" title="Brazil">🇧🇷 +55</option>
+                <option value="+673" data-placeholder="XXX XXXX" title="Brunei">🇧🇳 +673</option>
+                <option value="+359" data-placeholder="XX XXX XXXX" title="Bulgaria">🇧🇬 +359</option>
+                <option value="+226" data-placeholder="XX XX XX XX" title="Burkina Faso">🇧🇫 +226</option>
+                <option value="+257" data-placeholder="XX XX XXXX" title="Burundi">🇧🇮 +257</option>
+                <option value="+238" data-placeholder="XXX XX XX" title="Cabo Verde">🇨🇻 +238</option>
+                <option value="+855" data-placeholder="XX XXX XXX" title="Cambodia">🇰🇭 +855</option>
+                <option value="+237" data-placeholder="X XX XX XX XX" title="Cameroon">🇨🇲 +237</option>
+                <option value="+1" data-placeholder="(XXX) XXX-XXXX" title="Canada">🇨🇦 +1</option>
+                <option value="+236" data-placeholder="XX XX XX XX" title="Central African Rep.">🇨🇫 +236</option>
+                <option value="+235" data-placeholder="XX XX XX XX" title="Chad">🇹🇩 +235</option>
+                <option value="+56" data-placeholder="X XXXX XXXX" title="Chile">🇨🇱 +56</option>
+                <option value="+86" data-placeholder="XXX XXXX XXXX" title="China">🇨🇳 +86</option>
+                <option value="+57" data-placeholder="XXX XXX XXXX" title="Colombia">🇨🇴 +57</option>
+                <option value="+269" data-placeholder="XXX XXXX" title="Comoros">🇰🇲 +269</option>
+                <option value="+242" data-placeholder="XX XXX XXXX" title="Congo">🇨🇬 +242</option>
+                <option value="+243" data-placeholder="XX XXX XXXX" title="Congo (DRC)">🇨🇩 +243</option>
+                <option value="+506" data-placeholder="XXXX XXXX" title="Costa Rica">🇨🇷 +506</option>
+                <option value="+225" data-placeholder="XX XX XX XX XX" title="Cote d'Ivoire">🇨🇮 +225</option>
+                <option value="+385" data-placeholder="XX XXX XXX" title="Croatia">🇭🇷 +385</option>
+                <option value="+53" data-placeholder="X XXX XXXX" title="Cuba">🇨🇺 +53</option>
+                <option value="+357" data-placeholder="XX XXX XXX" title="Cyprus">🇨🇾 +357</option>
+                <option value="+420" data-placeholder="XXX XXX XXX" title="Czech Republic">🇨🇿 +420</option>
+                <option value="+45" data-placeholder="XX XX XX XX" title="Denmark">🇩🇰 +45</option>
+                <option value="+253" data-placeholder="XX XX XX XX" title="Djibouti">🇩🇯 +253</option>
+                <option value="+1-809" data-placeholder="(809) XXX-XXXX" title="Dominican Republic">🇩🇴 +1-809</option>
+                <option value="+593" data-placeholder="XX XXX XXXX" title="Ecuador">🇪🇨 +593</option>
+                <option value="+20" data-placeholder="XXX XXX XXXX" title="Egypt">🇪🇬 +20</option>
+                <option value="+503" data-placeholder="XXXX XXXX" title="El Salvador">🇸🇻 +503</option>
+                <option value="+240" data-placeholder="XXX XXX XXX" title="Equatorial Guinea">🇬🇶 +240</option>
+                <option value="+291" data-placeholder="X XXX XXX" title="Eritrea">🇪🇷 +291</option>
+                <option value="+372" data-placeholder="XXXX XXXX" title="Estonia">🇪🇪 +372</option>
+                <option value="+268" data-placeholder="XXXX XXXX" title="Eswatini">🇸🇿 +268</option>
+                <option value="+251" data-placeholder="XX XXX XXXX" title="Ethiopia">🇪🇹 +251</option>
+                <option value="+679" data-placeholder="XXX XXXX" title="Fiji">🇫🇯 +679</option>
+                <option value="+358" data-placeholder="XX XXX XXXX" title="Finland">🇫🇮 +358</option>
+                <option value="+33" data-placeholder="X XX XX XX XX" title="France">🇫🇷 +33</option>
+                <option value="+241" data-placeholder="X XX XX XX" title="Gabon">🇬🇦 +241</option>
+                <option value="+220" data-placeholder="XXX XXXX" title="Gambia">🇬🇲 +220</option>
+                <option value="+995" data-placeholder="XXX XX XX XX" title="Georgia">🇬🇪 +995</option>
+                <option value="+49" data-placeholder="XXXX XXXXXXX" title="Germany">🇩🇪 +49</option>
+                <option value="+233" data-placeholder="XX XXX XXXX" title="Ghana">🇬🇭 +233</option>
+                <option value="+30" data-placeholder="XXX XXX XXXX" title="Greece">🇬🇷 +30</option>
+                <option value="+1-473" data-placeholder="(473) XXX-XXXX" title="Grenada">🇬🇩 +1-473</option>
+                <option value="+502" data-placeholder="X XXX XXXX" title="Guatemala">🇬🇹 +502</option>
+                <option value="+224" data-placeholder="XXX XXX XXX" title="Guinea">🇬🇳 +224</option>
+                <option value="+245" data-placeholder="XXX XXXX" title="Guinea-Bissau">🇬🇼 +245</option>
+                <option value="+592" data-placeholder="XXX XXXX" title="Guyana">🇬🇾 +592</option>
+                <option value="+509" data-placeholder="XX XX XXXX" title="Haiti">🇭🇹 +509</option>
+                <option value="+504" data-placeholder="XXXX XXXX" title="Honduras">🇭🇳 +504</option>
+                <option value="+36" data-placeholder="XX XXX XXXX" title="Hungary">🇭🇺 +36</option>
+                <option value="+354" data-placeholder="XXX XXXX" title="Iceland">🇮🇸 +354</option>
+                <option value="+91" data-placeholder="XXXXX XXXXX" title="India">🇮🇳 +91</option>
+                <option value="+62" data-placeholder="XXX XXXX XXXX" title="Indonesia">🇮🇩 +62</option>
+                <option value="+98" data-placeholder="XXX XXX XXXX" title="Iran">🇮🇷 +98</option>
+                <option value="+964" data-placeholder="XXX XXX XXXX" title="Iraq">🇮🇶 +964</option>
+                <option value="+353" data-placeholder="XX XXX XXXX" title="Ireland">🇮🇪 +353</option>
+                <option value="+972" data-placeholder="XX XXX XXXX" title="Israel">🇮🇱 +972</option>
+                <option value="+39" data-placeholder="XXX XXX XXXX" title="Italy">🇮🇹 +39</option>
+                <option value="+1-876" data-placeholder="(876) XXX-XXXX" title="Jamaica">🇯🇲 +1-876</option>
+                <option value="+81" data-placeholder="XX XXXX XXXX" title="Japan">🇯🇵 +81</option>
+                <option value="+962" data-placeholder="X XXXX XXXX" title="Jordan">🇯🇴 +962</option>
+                <option value="+7" data-placeholder="XXX XXX XX XX" title="Kazakhstan">🇰🇿 +7</option>
+                <option value="+254" data-placeholder="XXX XXX XXX" title="Kenya">🇰🇪 +254</option>
+                <option value="+686" data-placeholder="XXXX XXXX" title="Kiribati">🇰🇮 +686</option>
+                <option value="+383" data-placeholder="XX XXX XXX" title="Kosovo">🇽🇰 +383</option>
+                <option value="+965" data-placeholder="XXXX XXXX" title="Kuwait">🇰🇼 +965</option>
+                <option value="+996" data-placeholder="XXX XXX XXX" title="Kyrgyzstan">🇰🇬 +996</option>
+                <option value="+856" data-placeholder="XX XX XXX XXX" title="Laos">🇱🇦 +856</option>
+                <option value="+371" data-placeholder="XXXX XXXX" title="Latvia">🇱🇻 +371</option>
+                <option value="+961" data-placeholder="XX XXX XXX" title="Lebanon">🇱🇧 +961</option>
+                <option value="+266" data-placeholder="XXXX XXXX" title="Lesotho">🇱🇸 +266</option>
+                <option value="+231" data-placeholder="XXX XXX XXXX" title="Liberia">🇱🇷 +231</option>
+                <option value="+218" data-placeholder="XX XXX XXXX" title="Libya">🇱🇾 +218</option>
+                <option value="+423" data-placeholder="XXX XXX" title="Liechtenstein">🇱🇮 +423</option>
+                <option value="+370" data-placeholder="XXX XXXXX" title="Lithuania">🇱🇹 +370</option>
+                <option value="+352" data-placeholder="XXX XXX XXX" title="Luxembourg">🇱🇺 +352</option>
+                <option value="+261" data-placeholder="XX XX XXX XX" title="Madagascar">🇲🇬 +261</option>
+                <option value="+265" data-placeholder="XX XXX XXXX" title="Malawi">🇲🇼 +265</option>
+                <option value="+60" data-placeholder="XX XXXX XXXX" title="Malaysia">🇲🇾 +60</option>
+                <option value="+960" data-placeholder="XXX XXXX" title="Maldives">🇲🇻 +960</option>
+                <option value="+223" data-placeholder="XX XX XX XX" title="Mali">🇲🇱 +223</option>
+                <option value="+356" data-placeholder="XXXX XXXX" title="Malta">🇲🇹 +356</option>
+                <option value="+692" data-placeholder="XXX XXXX" title="Marshall Islands">🇲🇭 +692</option>
+                <option value="+222" data-placeholder="XXXX XXXX" title="Mauritania">🇲🇷 +222</option>
+                <option value="+230" data-placeholder="XXXX XXXX" title="Mauritius">🇲🇺 +230</option>
+                <option value="+52" data-placeholder="XXX XXX XXXX" title="Mexico">🇲🇽 +52</option>
+                <option value="+691" data-placeholder="XXX XXXX" title="Micronesia">🇫🇲 +691</option>
+                <option value="+373" data-placeholder="XX XXX XXX" title="Moldova">🇲🇩 +373</option>
+                <option value="+377" data-placeholder="XX XX XX XX" title="Monaco">🇲🇨 +377</option>
+                <option value="+976" data-placeholder="XXXX XXXX" title="Mongolia">🇲🇳 +976</option>
+                <option value="+382" data-placeholder="XX XXX XXX" title="Montenegro">🇲🇪 +382</option>
+                <option value="+212" data-placeholder="XXX XXX XXXX" title="Morocco">🇲🇦 +212</option>
+                <option value="+258" data-placeholder="XX XXX XXXX" title="Mozambique">🇲🇿 +258</option>
+                <option value="+95" data-placeholder="XX XXX XXXX" title="Myanmar">🇲🇲 +95</option>
+                <option value="+264" data-placeholder="XX XXX XXXX" title="Namibia">🇳🇦 +264</option>
+                <option value="+674" data-placeholder="XXX XXXX" title="Nauru">🇳🇷 +674</option>
+                <option value="+977" data-placeholder="XX XXXX XXXX" title="Nepal">🇳🇵 +977</option>
+                <option value="+31" data-placeholder="X XX XX XX XX" title="Netherlands">🇳🇱 +31</option>
+                <option value="+64" data-placeholder="XX XXX XXXX" title="New Zealand">🇳🇿 +64</option>
+                <option value="+505" data-placeholder="XXXX XXXX" title="Nicaragua">🇳🇮 +505</option>
+                <option value="+227" data-placeholder="XX XX XX XX" title="Niger">🇳🇪 +227</option>
+                <option value="+234" data-placeholder="XXX XXX XXXX" title="Nigeria">🇳🇬 +234</option>
+                <option value="+389" data-placeholder="XX XXX XXX" title="North Macedonia">🇲🇰 +389</option>
+                <option value="+47" data-placeholder="XXX XX XXX" title="Norway">🇳🇴 +47</option>
+                <option value="+968" data-placeholder="XXXX XXXX" title="Oman">🇴🇲 +968</option>
+                <option value="+92" data-placeholder="XXX XXX XXXX" title="Pakistan">🇵🇰 +92</option>
+                <option value="+680" data-placeholder="XXX XXXX" title="Palau">🇵🇼 +680</option>
+                <option value="+507" data-placeholder="XXXX XXXX" title="Panama">🇵🇦 +507</option>
+                <option value="+675" data-placeholder="XXX XXXX" title="Papua New Guinea">🇵🇬 +675</option>
+                <option value="+595" data-placeholder="XXX XXX XXX" title="Paraguay">🇵🇾 +595</option>
+                <option value="+51" data-placeholder="XXX XXX XXX" title="Peru">🇵🇪 +51</option>
+                <option value="+63" data-placeholder="XXX XXX XXXX" title="Philippines">🇵🇭 +63</option>
+                <option value="+48" data-placeholder="XXX XXX XXX" title="Poland">🇵🇱 +48</option>
+                <option value="+351" data-placeholder="XXX XXX XXX" title="Portugal">🇵🇹 +351</option>
+                <option value="+974" data-placeholder="XXXX XXXX" title="Qatar">🇶🇦 +974</option>
+                <option value="+40" data-placeholder="XXX XXX XXX" title="Romania">🇷🇴 +40</option>
+                <option value="+7" data-placeholder="XXX XXX-XX-XX" title="Russia">🇷🇺 +7</option>
+                <option value="+250" data-placeholder="XXX XXX XXX" title="Rwanda">🇷🇼 +250</option>
+                <option value="+1-869" data-placeholder="(869) XXX-XXXX" title="Saint Kitts & Nevis">🇰🇳 +1-869</option>
+                <option value="+1-758" data-placeholder="(758) XXX-XXXX" title="Saint Lucia">🇱🇨 +1-758</option>
+                <option value="+1-784" data-placeholder="(784) XXX-XXXX" title="Saint Vincent">🇻🇨 +1-784</option>
+                <option value="+685" data-placeholder="XX XXXX" title="Samoa">🇼🇸 +685</option>
+                <option value="+378" data-placeholder="XXX XXX XXXX" title="San Marino">🇸🇲 +378</option>
+                <option value="+239" data-placeholder="XX XXXXX" title="Sao Tome & Principe">🇸🇹 +239</option>
+                <option value="+966" data-placeholder="XX XXX XXXX" title="Saudi Arabia">🇸🇦 +966</option>
+                <option value="+221" data-placeholder="XX XXX XX XX" title="Senegal">🇸🇳 +221</option>
+                <option value="+381" data-placeholder="XX XXX XXXX" title="Serbia">🇷🇸 +381</option>
+                <option value="+248" data-placeholder="X XXX XXX" title="Seychelles">🇸🇨 +248</option>
+                <option value="+232" data-placeholder="XX XXX XXX" title="Sierra Leone">🇸🇱 +232</option>
+                <option value="+65" data-placeholder="XXXX XXXX" title="Singapore">🇸🇬 +65</option>
+                <option value="+421" data-placeholder="XXX XXX XXX" title="Slovakia">🇸🇰 +421</option>
+                <option value="+386" data-placeholder="XX XXX XXX" title="Slovenia">🇸🇮 +386</option>
+                <option value="+677" data-placeholder="XXXXX" title="Solomon Islands">🇸🇧 +677</option>
+                <option value="+252" data-placeholder="XX XXX XXX" title="Somalia">🇸🇴 +252</option>
+                <option value="+27" data-placeholder="XX XXX XXXX" title="South Africa">🇿🇦 +27</option>
+                <option value="+211" data-placeholder="XX XXX XXXX" title="South Sudan">🇸🇸 +211</option>
+                <option value="+34" data-placeholder="XXX XXX XXX" title="Spain">🇪🇸 +34</option>
+                <option value="+94" data-placeholder="XX XXX XXXX" title="Sri Lanka">🇱🇰 +94</option>
+                <option value="+249" data-placeholder="XX XXX XXXX" title="Sudan">🇸🇩 +249</option>
+                <option value="+597" data-placeholder="XXX XXXX" title="Suriname">🇸🇷 +597</option>
+                <option value="+46" data-placeholder="XX XXX XXXX" title="Sweden">🇸🇪 +46</option>
+                <option value="+41" data-placeholder="XX XXX XX XX" title="Switzerland">🇨🇭 +41</option>
+                <option value="+963" data-placeholder="XXX XXX XXX" title="Syria">🇸🇾 +963</option>
+                <option value="+886" data-placeholder="X XXXX XXXX" title="Taiwan">🇹🇼 +886</option>
+                <option value="+992" data-placeholder="XX XXX XXXX" title="Tajikistan">🇹🇯 +992</option>
+                <option value="+255" data-placeholder="XXX XXX XXX" title="Tanzania">🇹🇿 +255</option>
+                <option value="+66" data-placeholder="XX XXXX XXXX" title="Thailand">🇹🇭 +66</option>
+                <option value="+670" data-placeholder="XXXX XXXX" title="Timor-Leste">🇹🇱 +670</option>
+                <option value="+228" data-placeholder="XX XX XX XX" title="Togo">🇹🇬 +228</option>
+                <option value="+676" data-placeholder="XXX XXXX" title="Tonga">🇹🇴 +676</option>
+                <option value="+1-868" data-placeholder="(868) XXX-XXXX" title="Trinidad & Tobago">🇹🇹 +1-868</option>
+                <option value="+216" data-placeholder="XX XXX XXX" title="Tunisia">🇹🇳 +216</option>
+                <option value="+90" data-placeholder="XXX XXX XXXX" title="Turkey">🇹🇷 +90</option>
+                <option value="+993" data-placeholder="XX XXX XXX" title="Turkmenistan">🇹🇲 +993</option>
+                <option value="+688" data-placeholder="XXXXX" title="Tuvalu">🇹🇻 +688</option>
+                <option value="+256" data-placeholder="XXX XXX XXX" title="Uganda">🇺🇬 +256</option>
+                <option value="+380" data-placeholder="XX XXX XX XX" title="Ukraine">🇺🇦 +380</option>
+                <option value="+971" data-placeholder="XX XXX XXXX" title="United Arab Emirates">🇦🇪 +971</option>
+                <option value="+44" data-placeholder="XXXX XXX XXXX" title="United Kingdom">🇬🇧 +44</option>
+                <option value="+1" data-placeholder="(XXX) XXX-XXXX" title="United States" selected>🇺🇸 +1</option>
+                <option value="+598" data-placeholder="X XXX XXXX" title="Uruguay">🇺🇾 +598</option>
+                <option value="+998" data-placeholder="XX XXX XXXX" title="Uzbekistan">🇺🇿 +998</option>
+                <option value="+678" data-placeholder="XXX XXXX" title="Vanuatu">🇻🇺 +678</option>
+                <option value="+39" data-placeholder="06 XXXX XXXX" title="Vatican City">🇻🇦 +39</option>
+                <option value="+58" data-placeholder="XXX XXX XXXX" title="Venezuela">🇻🇪 +58</option>
+                <option value="+84" data-placeholder="XXX XXX XXXX" title="Vietnam">🇻🇳 +84</option>
+                <option value="+967" data-placeholder="XXX XXX XXX" title="Yemen">🇾🇪 +967</option>
+                <option value="+260" data-placeholder="XX XXX XXXX" title="Zambia">🇿🇲 +260</option>
+                <option value="+263" data-placeholder="XX XXX XXXX" title="Zimbabwe">🇿🇼 +263</option>
+              </select>
+              <input type="tel" class="phone-number" id="phoneNumber" placeholder="(XXX) XXX-XXXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <div class="cal-field" id="calField">
+              <span class="cal-text" id="calText">Select date...</span>
+              <span class="cal-ico">&#128197;</span>
+              <input type="date" id="realDate" onchange="onDatePick()" onclick="openCal()" tabindex="-1" />
+            </div>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell me a bit about your vision, how many people will be in the session, any special moments you'd like captured…"></textarea></div>
+          <button type="button" onclick="submitForm()" class="btn-primary" style="width:100%;border:none;cursor:pointer;margin-top:8px">Send Message</button>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:10px;font-weight:400;text-align:center">Or reach out directly on Instagram — <a href="https://www.instagram.com/khmarna_photographer/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:500">@khmarna_photographer</a> ❤️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--warm);margin-bottom:-2px">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60"><path d="M0,20 C360,55 1080,10 1440,40 L1440,60 L0,60 Z" fill="#2C3E2D"/></svg>
+</div>
+
+<footer>
+  <div class="footer-logo">Oksana Khmarna</div>
+  <div class="footer-tagline">Family Photographer · Lancaster, PA</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.instagram.com/khmarna_photographer/" target="_blank">Instagram</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Oksana Khmarna Photography. All rights reserved.</p>
+  <p style="margin-top:12px;font-size:.7rem;color:rgba(255,255,255,.45)">
+    <a href="#" onclick="document.getElementById('privacyModal').classList.add('open');return false" style="color:rgba(255,255,255,.55);text-decoration:underline;transition:color .2s" onmouseover="this.style.color='#E8C4B2'" onmouseout="this.style.color='rgba(255,255,255,.55)'">Privacy Policy</a>
+
+  </p>
+</footer>
+
+<script>
+const GALLERY = {
+  "wedding": ["wedding/DSC_5842.jpeg","wedding/DSC_5859.jpeg","wedding/DSC_5866.jpeg","wedding/DSC_5874-2.jpeg","wedding/DSC_5877.jpeg","wedding/DSC_5932.jpeg","wedding/DSC_5941.jpeg","wedding/DSC_5949.jpeg","wedding/DSC_6038.jpeg","wedding/DSC_6042 копія.jpeg","wedding/DSC_6098.jpeg","wedding/DSC_6135.jpeg","wedding/DSC_6142.jpeg","wedding/DSC_6149.jpeg","wedding/DSC_6187.jpeg","wedding/DSC_6209-2.jpeg","wedding/DSC_6210.jpeg","wedding/DSC_6237-2.jpeg","wedding/DSC_6242.jpeg","wedding/IMG_1593.jpeg","wedding/IMG_1594.jpeg","wedding/IMG_1595.jpeg","wedding/IMG_1596.jpeg","wedding/IMG_1597.jpeg","wedding/IMG_1598.jpeg","wedding/IMG_1599.jpeg","wedding/IMG_1600.jpeg","wedding/IMG_1601.jpeg","wedding/IMG_1602.jpeg","wedding/IMG_1603.jpeg","wedding/IMG_1604.jpeg","wedding/IMG_1605.jpeg","wedding/IMG_1619.jpeg","wedding/IMG_1620.jpeg","wedding/IMG_1624.jpeg","wedding/IMG_1625.jpeg","wedding/IMG_1626.jpeg","wedding/IMG_1627.jpeg","wedding/IMG_1646.jpeg","wedding/IMG_1647.jpeg","wedding/IMG_1648.jpeg","wedding/IMG_1649.jpeg","wedding/IMG_1650.jpeg","wedding/IMG_1651.jpeg","wedding/IMG_1653.jpeg","wedding/IMG_1654.jpeg","wedding/IMG_1655.jpeg","wedding/IMG_1656.jpeg","wedding/IMG_1657.jpeg","wedding/IMG_1658.jpeg","wedding/IMG_1659.jpeg","wedding/IMG_1660.jpeg","wedding/IMG_1661.jpeg","wedding/IMG_1662.jpeg","wedding/IMG_1663.jpeg","wedding/IMG_1664.jpeg","wedding/IMG_6333.jpeg","wedding/IMG_6336.jpeg","wedding/IMG_7019.jpeg","wedding/IMG_7020.jpeg","wedding/IMG_7023.jpeg","wedding/IMG_7024.jpeg","wedding/IMG_7025.jpeg","wedding/IMG_7166.jpeg","wedding/IMG_7168.jpeg","wedding/IMG_7170.jpeg","wedding/IMG_7171.jpeg","wedding/IMG_7175.jpeg","wedding/IMG_7213.jpeg","wedding/IMG_7216.jpeg","wedding/IMG_7218.jpeg","wedding/IMG_7224.jpeg","wedding/IMG_7225.jpeg","wedding/IMG_7226.jpeg","wedding/IMG_7227.jpeg","wedding/IMG_7228.jpeg","wedding/IMG_7426.jpeg","wedding/IMG_7428.jpeg","wedding/IMG_7429.jpeg","wedding/IMG_7430.jpeg","wedding/IMG_7432.jpeg","wedding/IMG_7436.jpeg","wedding/IMG_7577.jpeg","wedding/IMG_7580.jpeg","wedding/IMG_7581.jpeg","wedding/IMG_7582.jpeg","wedding/IMG_7583.jpeg","wedding/IMG_7584.jpeg","wedding/IMG_7585.jpeg","wedding/IMG_7586.jpeg","wedding/IMG_7595.jpeg","wedding/IMG_7599.jpeg","wedding/IMG_7605.jpeg","wedding/IMG_7634.jpeg","wedding/IMG_7635.jpeg","wedding/IMG_7636.jpeg","wedding/IMG_7638.jpeg","wedding/IMG_7639.jpeg","wedding/IMG_7640.jpeg","wedding/IMG_7641.jpeg","wedding/IMG_7643.jpeg","wedding/IMG_7644.jpeg","wedding/IMG_7646.jpeg","wedding/IMG_7647.jpeg","wedding/IMG_7649.jpeg","wedding/IMG_8313.jpeg","wedding/IMG_8314.jpeg","wedding/IMG_8315.jpeg","wedding/IMG_8316.jpeg","wedding/IMG_8317.jpeg","wedding/IMG_8318.jpeg","wedding/IMG_8319.jpeg","wedding/IMG_8320.jpeg","wedding/IMG_8389.jpeg","wedding/IMG_8391.jpeg","wedding/IMG_8396.jpeg","wedding/IMG_8401.jpeg","wedding/IMG_8407.jpeg","wedding/IMG_8430.jpeg","wedding/IMG_8431.jpeg","wedding/IMG_8433.jpeg","wedding/IMG_8435.jpeg"],
+  "pregnancy": ["pregnancy/DSC_7236.jpeg","pregnancy/DSC_7251.jpeg","pregnancy/DSC_7252-2.jpeg","pregnancy/DSC_7290.jpeg","pregnancy/DSC_7295.jpeg","pregnancy/DSC_7313 копія.jpeg","pregnancy/DSC_7317.jpeg","pregnancy/DSC_7512.jpeg","pregnancy/DSC_7593.jpeg","pregnancy/DSC_7730.jpeg","pregnancy/DSC_8352.jpeg","pregnancy/DSC_8357.jpeg","pregnancy/DSC_8379-2.jpeg","pregnancy/DSC_8389.jpeg","pregnancy/DSC_8390.jpeg","pregnancy/DSC_8395.jpeg","pregnancy/DSC_8406.jpeg","pregnancy/DSC_8454.jpeg","pregnancy/DSC_8462.jpeg","pregnancy/DSC_8467.jpeg","pregnancy/DSC_8477.jpeg","pregnancy/DSC_8520.jpeg","pregnancy/DSC_8528-2.jpeg","pregnancy/IMG_1606.jpeg","pregnancy/IMG_1609.jpeg","pregnancy/IMG_1628.jpeg","pregnancy/IMG_1629.jpeg","pregnancy/IMG_1630.jpeg","pregnancy/IMG_1631.jpeg","pregnancy/IMG_1632.jpeg","pregnancy/IMG_1633.jpeg","pregnancy/IMG_1634.jpeg","pregnancy/IMG_1635.jpeg","pregnancy/IMG_1636.jpeg","pregnancy/IMG_1637.jpeg","pregnancy/IMG_1842.jpeg","pregnancy/IMG_1843.jpeg","pregnancy/IMG_1844.jpeg","pregnancy/IMG_1845.jpeg","pregnancy/IMG_1846.jpeg","pregnancy/IMG_1847.jpeg","pregnancy/IMG_1848.jpeg","pregnancy/IMG_1850.jpeg","pregnancy/IMG_1851.jpeg","pregnancy/IMG_1852.jpeg","pregnancy/IMG_1853.jpeg","pregnancy/IMG_1854.jpeg","pregnancy/IMG_1855.jpeg","pregnancy/IMG_1856.jpeg","pregnancy/IMG_1857.jpeg","pregnancy/IMG_1858.jpeg","pregnancy/IMG_1859.jpeg","pregnancy/IMG_1860.jpeg","pregnancy/IMG_1861.jpeg","pregnancy/IMG_1862.jpeg","pregnancy/IMG_1863.jpeg","pregnancy/IMG_1864.jpeg","pregnancy/IMG_1865.jpeg","pregnancy/IMG_4428.jpeg","pregnancy/IMG_7569.jpeg","pregnancy/IMG_7570.jpeg","pregnancy/IMG_7571.jpeg","pregnancy/IMG_7573.jpeg","pregnancy/IMG_7575.jpeg","pregnancy/IMG_7576.jpeg","pregnancy/IMG_7613.jpeg","pregnancy/IMG_7619.jpeg","pregnancy/IMG_7621.jpeg","pregnancy/IMG_8324.jpeg","pregnancy/IMG_8326.jpeg","pregnancy/IMG_8327.jpeg","pregnancy/IMG_8329.jpeg","pregnancy/IMG_8415.jpeg","pregnancy/IMG_8908.jpeg","pregnancy/IMG_8909.jpeg","pregnancy/IMG_8911.jpeg","pregnancy/IMG_8920.jpeg"],
+  "familykids": ["family kids/DSC_3620.jpeg","family kids/DSC_3630-2.jpeg","family kids/DSC_3708 копія.jpeg","family kids/DSC_4162.jpeg","family kids/DSC_4176.jpeg","family kids/DSC_4292 копія.jpeg","family kids/DSC_4343.jpeg","family kids/DSC_4350-2.jpeg","family kids/DSC_4365.jpeg","family kids/DSC_4428 копія.jpeg","family kids/DSC_5636.jpeg","family kids/DSC_5662-2.jpeg","family kids/DSC_5681.jpeg","family kids/DSC_5748 копія 2.jpeg","family kids/DSC_5767.jpeg","family kids/DSC_5783.jpeg","family kids/DSC_7326.jpeg","family kids/DSC_7327.jpeg","family kids/DSC_7339-3.jpeg","family kids/DSC_7348-2.jpeg","family kids/DSC_7365.jpeg","family kids/DSC_8165.jpeg","family kids/DSC_8202.jpeg","family kids/DSC_8227.jpeg","family kids/DSC_8263.jpeg","family kids/DSC_8990.jpeg","family kids/DSC_9002.jpeg","family kids/DSC_9014-2.jpeg","family kids/DSC_9051.jpeg","family kids/DSC_9166.jpeg","family kids/DSC_9174.jpeg","family kids/DSC_9179.jpeg","family kids/DSC_9220.jpeg","family kids/IMG_1493.jpeg","family kids/IMG_1494.jpeg","family kids/IMG_1495.jpeg","family kids/IMG_1496.jpeg","family kids/IMG_1584.jpeg","family kids/IMG_1585.jpeg","family kids/IMG_1586.jpeg","family kids/IMG_1611.jpeg","family kids/IMG_1615.jpeg","family kids/IMG_1616.jpeg","family kids/IMG_1778.jpeg","family kids/IMG_1779.jpeg","family kids/IMG_1780.jpeg","family kids/IMG_1781.jpeg","family kids/IMG_1782.jpeg","family kids/IMG_1783.jpeg","family kids/IMG_1784.jpeg","family kids/IMG_1785.jpeg","family kids/IMG_1786.jpeg","family kids/IMG_1787.jpeg","family kids/IMG_1788.jpeg","family kids/IMG_4522.jpeg","family kids/IMG_5648.jpeg","family kids/IMG_5649.jpeg","family kids/IMG_5650.jpeg","family kids/IMG_5652.jpeg","family kids/IMG_5653.jpeg","family kids/IMG_7163.jpeg","family kids/IMG_7444.jpeg","family kids/IMG_7445.jpeg","family kids/IMG_7446.jpeg"],
+  "couple": ["couple/DSC_4951.jpeg","couple/DSC_6283.jpeg","couple/DSC_6293-2.jpeg","couple/DSC_6327.jpeg","couple/DSC_6361.jpeg","couple/DSC_6457.jpeg","couple/DSC_6479.jpeg","couple/DSC_6506.jpeg","couple/DSC_6584.jpeg","couple/DSC_7964.jpeg","couple/DSC_7971-2.jpeg","couple/DSC_8006.jpeg","couple/DSC_8062.jpeg","couple/DSC_8105-3.jpeg","couple/DSC_8148.jpeg","couple/IMG_1589.jpeg","couple/IMG_1590.jpeg","couple/IMG_1591.jpeg","couple/IMG_1592.jpeg","couple/IMG_1612.jpeg","couple/IMG_1613.jpeg","couple/IMG_1614.jpeg","couple/IMG_1636.jpeg","couple/IMG_1638.jpeg","couple/IMG_1639.jpeg","couple/IMG_1640.jpeg","couple/IMG_1641.jpeg","couple/IMG_1643.jpeg","couple/IMG_1644.jpeg","couple/IMG_1645.jpeg","couple/IMG_1685.jpeg","couple/IMG_1686.jpeg","couple/IMG_1687.jpeg","couple/IMG_1688.jpeg","couple/IMG_1689.jpeg","couple/IMG_1690.jpeg","couple/IMG_1691.jpeg","couple/IMG_1692.jpeg","couple/IMG_1693.jpeg","couple/IMG_1694.jpeg","couple/IMG_1695.jpeg","couple/IMG_1696.jpeg","couple/IMG_1697.jpeg","couple/IMG_1698.jpeg","couple/IMG_1699.jpeg","couple/IMG_1700.jpeg","couple/IMG_1701.jpeg","couple/IMG_1882.jpeg","couple/IMG_1883.jpeg","couple/IMG_1884.jpeg","couple/IMG_1885.jpeg","couple/IMG_1886.jpeg","couple/IMG_1887.jpeg"],
+  "newborn": ["new born/IMG_1665.jpeg","new born/IMG_1666.jpeg","new born/IMG_1667.jpeg","new born/IMG_1668.jpeg","new born/IMG_1669.jpeg","new born/IMG_1670.jpeg","new born/IMG_1671.jpeg","new born/IMG_1672.jpeg","new born/IMG_1673.jpeg","new born/IMG_1674.jpeg","new born/IMG_1675.jpeg","new born/IMG_1676.jpeg","new born/IMG_1677.jpeg","new born/IMG_1678.jpeg","new born/IMG_1679.jpeg","new born/IMG_1680.jpeg","new born/IMG_1681.jpeg","new born/IMG_1682.jpeg","new born/IMG_1683.jpeg","new born/IMG_1684.jpeg","new born/IMG_1702.jpeg","new born/IMG_1703.jpeg","new born/IMG_1704.jpeg","new born/IMG_1705.jpeg","new born/IMG_1706.jpeg","new born/IMG_1707.jpeg","new born/IMG_1708.jpeg","new born/IMG_1709.jpeg","new born/IMG_1710.jpeg","new born/IMG_1711.jpeg","new born/IMG_1712.jpeg","new born/IMG_1713.jpeg","new born/IMG_1714.jpeg","new born/IMG_1715.jpeg","new born/IMG_1716.jpeg","new born/IMG_1717.jpeg","new born/IMG_1718.jpeg","new born/IMG_1719.jpeg","new born/IMG_1720.jpeg","new born/IMG_1721.jpeg","new born/IMG_1722.jpeg","new born/IMG_1724.jpeg","new born/IMG_1726.jpeg","new born/IMG_1727.jpeg","new born/IMG_1728.jpeg","new born/IMG_1729.jpeg","new born/IMG_1730.jpeg","new born/IMG_1731.jpeg","new born/IMG_1742.jpeg","new born/IMG_1743.jpeg","new born/IMG_1744.jpeg","new born/IMG_1745.jpeg","new born/IMG_1746.jpeg","new born/IMG_1747.jpeg","new born/IMG_1748.jpeg","new born/IMG_1749.jpeg","new born/IMG_1750.jpeg","new born/IMG_1751.jpeg","new born/IMG_1752.jpeg","new born/IMG_1753.jpeg","new born/IMG_1754.jpeg","new born/IMG_1755.jpeg","new born/IMG_1756.jpeg","new born/IMG_1757.jpeg","new born/IMG_1758.jpeg","new born/IMG_1759.jpeg","new born/IMG_1760.jpeg","new born/IMG_1761.jpeg","new born/IMG_1762.jpeg","new born/IMG_1763.jpeg","new born/IMG_1764.jpeg","new born/IMG_1765.jpeg"],
+  "events": ["ivents/IMG_0099.jpeg","ivents/IMG_0938.jpeg","ivents/IMG_1133.jpeg","ivents/IMG_1134.jpeg","ivents/IMG_1135.jpeg","ivents/IMG_1136.jpeg","ivents/IMG_1137.jpeg","ivents/IMG_1138.jpeg","ivents/IMG_1139.jpeg","ivents/IMG_1141.jpeg","ivents/IMG_1732.jpeg","ivents/IMG_1733.jpeg","ivents/IMG_1734.jpeg","ivents/IMG_1735.jpeg","ivents/IMG_1736.jpeg","ivents/IMG_1737.jpeg","ivents/IMG_1738.jpeg","ivents/IMG_1739.jpeg","ivents/IMG_1740.jpeg","ivents/IMG_1741.jpeg","ivents/IMG_1766.jpeg","ivents/IMG_1767.jpeg","ivents/IMG_1768.jpeg","ivents/IMG_1769.jpeg","ivents/IMG_1770.jpeg","ivents/IMG_1771.jpeg","ivents/IMG_1772.jpeg","ivents/IMG_1775.jpeg","ivents/IMG_1776.jpeg"],
+};
+const CAT_NAMES = {wedding:"Wedding",pregnancy:"Pregnancy",familykids:"Family & Kids",couple:"Couple",newborn:"Newborn",events:"Events"};
+
+  // Nav
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('navMobile');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open'); mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Reveal
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); revObs.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  // Gallery
+  let currentCat = null;
+  function openGallery(cat) {
+    currentCat = cat;
+    document.getElementById('gmTitle').textContent = CAT_NAMES[cat] || cat;
+    const grid = document.getElementById('gmGrid');
+    grid.innerHTML = '';
+    (GALLERY[cat]||[]).forEach((src,idx) => {
+      const d = document.createElement('div');
+      d.className = 'gm-item';
+      const img = document.createElement('img');
+      img.src = src; img.alt = CAT_NAMES[cat]; img.loading = 'lazy';
+      d.appendChild(img);
+      d.addEventListener('click', () => openLb(idx));
+      grid.appendChild(d);
+    });
+    const modal = document.getElementById('galleryModal');
+    modal.querySelector('.gm-body').scrollTop = 0;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeGallery() {
+    document.getElementById('galleryModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close on backdrop click (outside the grid) or clicking gm-body directly
+  document.getElementById('galleryModal').addEventListener('click', function(e) {
+    if (e.target === this || e.target.classList.contains('gm-body')) closeGallery();
+  });
+
+  let lbIndex = 0;
+  function openLb(idx) {
+    lbIndex = idx;
+    document.getElementById('gmLbImg').src = GALLERY[currentCat][idx];
+    document.getElementById('gmLightbox').classList.add('open');
+  }
+  function closeLb() { document.getElementById('gmLightbox').classList.remove('open'); }
+  function lbPrev() { const n=GALLERY[currentCat].length; lbIndex=(lbIndex-1+n)%n; openLb(lbIndex); }
+  function lbNext() { const n=GALLERY[currentCat].length; lbIndex=(lbIndex+1)%n; openLb(lbIndex); }
+  document.getElementById('gmLightbox').addEventListener('click', function(e){ if(e.target===this) closeLb(); });
+  document.addEventListener('keydown', e => {
+    const lbOpen = document.getElementById('gmLightbox').classList.contains('open');
+    const modalOpen = document.getElementById('galleryModal').classList.contains('open');
+    if (!modalOpen && !lbOpen) return;
+    if (e.key === 'Escape') { closeLb(); closeGallery(); return; }
+    if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) e.preventDefault();
+    if (lbOpen) {
+      if (e.key === 'ArrowLeft') lbPrev();
+      if (e.key === 'ArrowRight') lbNext();
+    } else {
+      const body = document.querySelector('.gm-body');
+      if (e.key === 'ArrowDown') body.scrollBy({top: 220, behavior:'smooth'});
+      if (e.key === 'ArrowUp')   body.scrollBy({top: -220, behavior:'smooth'});
+    }
+  });
+
+  // Reviews carousel
+  (function(){
+    const carousel = document.getElementById('reviewsCarousel');
+    const dotsEl = document.getElementById('reviewsDots');
+    const cards = Array.from(carousel.children);
+    const total = cards.length;
+    let cur=0, timer;
+    function vis(){ return window.innerWidth>900?3:window.innerWidth>600?2:1; }
+    function cw(){ return cards[0]?cards[0].getBoundingClientRect().width+24:0; }
+    function dots(){
+      dotsEl.innerHTML='';
+      const n=Math.max(1,total-vis()+1);
+      for(let i=0;i<n;i++){const d=document.createElement('button');d.className='reviews-dot'+(i===0?' active':'');d.addEventListener('click',()=>{go(i);reset();});dotsEl.appendChild(d);}
+    }
+    function updDots(){ dotsEl.querySelectorAll('.reviews-dot').forEach((d,i)=>d.classList.toggle('active',i===cur)); }
+    function go(idx){ const max=Math.max(0,total-vis()); cur=Math.max(0,Math.min(idx,max)); carousel.style.transform=`translateX(-${cw()*cur}px)`; updDots(); }
+    function next(){ const max=Math.max(0,total-vis()); go(cur>=max?0:cur+1); }
+    function reset(){ clearInterval(timer); timer=setInterval(next,2000); }
+    dots(); reset();
+    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+    carousel.addEventListener('mouseleave',reset);
+    window.addEventListener('resize',()=>{dots();go(0);});
+  })();
+
+
+  // Close privacy modal on backdrop
+  document.getElementById('privacyModal').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('privacyModal').classList.remove('open');
+  });
+
+  // Lightbox: touch swipe + mouse drag support
+  (function(){
+    const lb = document.getElementById('gmLightbox');
+    let startX = 0, isDragging = false;
+
+    lb.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) { dx < 0 ? lbNext() : lbPrev(); }
+    }, {passive:true});
+
+    lb.addEventListener('mousedown', e => { if(e.target.tagName==='IMG'||e.target===lb){startX=e.clientX;isDragging=true;} });
+    lb.addEventListener('mouseup', e => {
+      if(!isDragging) return; isDragging=false;
+      const dx = e.clientX - startX;
+      if(Math.abs(dx)>60){ dx<0?lbNext():lbPrev(); }
+    });
+  })();
+
+  function submitForm() {
+    const name = document.querySelector('.contact-form input[placeholder="Name"]')?.value?.trim() || '';
+    const last = document.querySelector('.contact-form input[placeholder="Surname"]')?.value?.trim() || '';
+    const email = document.querySelector('.contact-form input[type="email"]')?.value?.trim() || '';
+    const phone = (document.getElementById('phoneCode')?.value || '+1') + ' ' + (document.getElementById('phoneNumber')?.value?.trim() || '');
+    const rdv = document.getElementById('realDate')?.value || ''; const date = rdv ? (()=>{ const [y,m,d]=rdv.split('-'); return m+'/'+d+'/'+y; })() : '';
+    const msg = document.querySelector('.contact-form textarea')?.value?.trim() || '';
+
+    if (!name && !email && !phone.trim() && !msg) {
+      showFormMsg('Please fill in at least your name and contact details.', false);
+      return;
+    }
+
+    // Send to Formspree (replace with actual endpoint when ready)
+    // For now — show thank you and save to console
+    console.log('Form submission:', {name, last, email, phone, date, msg});
+    showFormMsg("Thank you for your inquiry! I\u2019ll get back to you shortly. \u2764\uFE0F", true);
+
+    // Reset form
+    document.querySelector('.contact-form').querySelectorAll('input, textarea').forEach(el => { if(el.id !== 'phoneCode') el.value = ''; });
+  }
+
+  function showFormMsg(text, success) {
+    let el = document.getElementById('formMsg');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'formMsg';
+      document.querySelector('.contact-form').appendChild(el);
+    }
+    el.textContent = text;
+    el.style.cssText = 'margin-top:12px;padding:14px 18px;border-radius:2px;font-size:.88rem;font-weight:400;text-align:center;' +
+      (success
+        ? 'background:rgba(44,62,45,.08);color:var(--forest);border:1px solid rgba(44,62,45,.2)'
+        : 'background:rgba(181,120,90,.08);color:var(--accent);border:1px solid rgba(181,120,90,.2)');
+    setTimeout(() => { if(el) el.style.opacity = '0'; el.style.transition = 'opacity 1s'; setTimeout(()=>el.remove(), 1000); }, 5000);
+  }
+
+  function updatePhonePlaceholder() {
+    const sel = document.getElementById('phoneCode');
+    const opt = sel.options[sel.selectedIndex];
+    const fmt = opt.getAttribute('data-placeholder') || 'Enter phone number';
+    document.getElementById('phoneNumber').placeholder = fmt;
+  }
+
+  function openCal() {
+    var d = document.getElementById('realDate');
+    try { d.showPicker(); } catch(e) { d.focus(); d.click(); }
+  }
+  function onDatePick() {
+    var d = document.getElementById('realDate');
+    var t = document.getElementById('calText');
+    if (d.value) {
+      var parts = d.value.split('-');
+      t.textContent = parts[1] + '/' + parts[2] + '/' + parts[0];
+      t.classList.add('picked');
+    } else {
+      t.textContent = 'Select date...';
+      t.classList.remove('picked');
+    }
+  }
+</script>
+
+<!-- Privacy Policy Modal -->
+<div class="privacy-modal" id="privacyModal">
+  <div class="privacy-box">
+    <div class="privacy-header">
+      <h2>Privacy Policy</h2>
+      <button class="privacy-close" onclick="document.getElementById('privacyModal').classList.remove('open')">×</button>
+    </div>
+    <div class="privacy-body">
+      <h3>1. Information We Collect</h3>
+      <p>When you fill out the contact form on this website, we collect your name, email address, and any information you voluntarily provide in your message. We do not collect sensitive personal data.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>The information you provide is used solely to respond to your inquiry and to schedule photography sessions. We do not sell, rent, or share your personal information with third parties.</p>
+
+      <h3>3. Cookies</h3>
+      <p>This website uses essential cookies to ensure proper functionality. We may also use Google Fonts, which loads fonts from Google's servers and may set its own cookies. By continuing to use this site, you consent to our use of cookies as described in this policy.</p>
+
+      <h3>4. Photography & Images</h3>
+      <p>All photographs on this website are the intellectual property of Oksana Khmarna Photography. Reproduction or distribution without written permission is prohibited. Client photos are used only with client consent.</p>
+
+      <h3>5. Third-Party Links</h3>
+      <p>This website may contain links to Instagram and other external sites. We are not responsible for the privacy practices of these third-party platforms.</p>
+
+      <h3>6. Data Retention</h3>
+      <p>Contact form submissions are retained only as long as necessary to respond to your inquiry. You may request deletion of your data at any time by contacting us via Instagram.</p>
+
+      <h3>7. Your Rights</h3>
+      <p>You have the right to access, correct, or delete any personal information we hold about you. To exercise these rights, please reach out via Instagram: <strong>@khmarna_photographer</strong>.</p>
+
+      <h3>8. Contact</h3>
+      <p>For any privacy-related questions, please contact us via Instagram <a href="https://www.instagram.com/khmarna_photographer/" target="_blank" style="color:var(--accent)">@khmarna_photographer</a>. Based in Lancaster, PA.</p>
+
+      <p style="margin-top:20px;font-size:.78rem;color:#888">Last updated: June 2026</p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
