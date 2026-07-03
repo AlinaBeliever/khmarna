@@ -187,6 +187,10 @@
     .footer-links{display:flex;gap:32px;justify-content:center;list-style:none;margin-top:32px;flex-wrap:wrap}
     .footer-links a{font-size:.75rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF;text-decoration:none;transition:color .2s}
     .footer-links a:hover{color:var(--blush)}
+    .footer-socials{display:flex;gap:16px;justify-content:center;margin-top:28px;padding-top:28px;border-top:1px solid rgba(247,242,235,.12)}
+    .footer-social-icon{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .2s}
+    .footer-social-icon:hover{transform:translateY(-2px);opacity:.9}
+    .footer-social-icon svg{width:18px;height:18px;display:block}
     .footer-copy{font-size:.72rem;color:rgba(255,255,255,.7);margin-top:40px}
     .footer-legal{margin-top:12px;font-size:.7rem;color:rgba(255,255,255,.45)}
     .footer-legal a{color:rgba(255,255,255,.55);text-decoration:underline;transition:color .2s}
@@ -206,8 +210,8 @@
       .port-outer{display:flex;flex-direction:column;height:auto;gap:8px}
       .port-left,.port-right{display:contents}
       .port-pair{height:190px}
-      .port-left>.cat-card{height:300px}
-      .port-right>.cat-card{height:300px}
+      .port-left>.cat-card{height:340px}
+      .port-right>.cat-card{height:340px}
     }
     @media(max-width:600px){
       section{padding:64px 20px}.hero{padding:60px 20px 56px;justify-content:flex-end}
@@ -225,7 +229,7 @@
       .review-card{flex:0 0 100%;min-width:0}
       .footer-links{gap:16px}footer{padding:40px 20px 32px}
       .port-pair{height:155px;gap:6px}
-      .port-left>.cat-card,.port-right>.cat-card{height:250px}
+      .port-left>.cat-card,.port-right>.cat-card{height:290px}
     }
 
 
@@ -734,9 +738,15 @@
     <li><a href="#about">About</a></li><li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#services">Services</a></li><li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://www.instagram.com/khmarna_photographer/" target="_blank" rel="noopener">Instagram</a></li>
-    <li><a href="https://www.facebook.com/people/Khmarna-Photography/61569986783839/" target="_blank" rel="noopener">Facebook</a></li>
   </ul>
+  <div class="footer-socials">
+    <a class="footer-social-icon contact-icon-ig" href="https://www.instagram.com/khmarna_photographer/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.15" fill="#fff"/></svg>
+    </a>
+    <a class="footer-social-icon contact-icon-fb" href="https://www.facebook.com/people/Khmarna-Photography/61569986783839/" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 8.5H13.8C13.14 8.5 12.6 9.04 12.6 9.7V11.3H15.5L15.1 14.2H12.6V21.5H9.5V14.2H7.5V11.3H9.5V9.4C9.5 7.24 11.24 5.5 13.4 5.5H15.5V8.5Z" fill="#fff"/></svg>
+    </a>
+  </div>
   <p class="footer-copy">© 2026 Oksana Khmarna Photography. All rights reserved.</p>
   <p class="footer-legal">
     <a href="#" onclick="document.getElementById('privacyModal').classList.add('open');return false">Privacy Policy</a>
