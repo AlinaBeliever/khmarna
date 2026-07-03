@@ -165,6 +165,9 @@
     .contact-details{margin-top:40px;display:flex;flex-direction:column;gap:20px}
     .contact-item{display:flex;align-items:center;gap:16px}
     .contact-icon{width:40px;height:40px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .contact-icon svg{width:20px;height:20px;display:block}
+    .contact-icon-ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%)}
+    .contact-icon-fb{background:#1877F2}
     .contact-item a{color:var(--forest);text-decoration:none;font-weight:500}
     .contact-item a:hover{color:var(--accent)}
     .contact-item span{font-size:.72rem;color:var(--muted);display:block;margin-bottom:2px;letter-spacing:.08em;text-transform:uppercase}
@@ -203,8 +206,8 @@
       .port-outer{display:flex;flex-direction:column;height:auto;gap:8px}
       .port-left,.port-right{display:contents}
       .port-pair{height:190px}
-      .port-left>.cat-card{height:260px}
-      .port-right>.cat-card{height:260px}
+      .port-left>.cat-card{height:300px}
+      .port-right>.cat-card{height:300px}
     }
     @media(max-width:600px){
       section{padding:64px 20px}.hero{padding:60px 20px 56px;justify-content:flex-end}
@@ -222,7 +225,7 @@
       .review-card{flex:0 0 100%;min-width:0}
       .footer-links{gap:16px}footer{padding:40px 20px 32px}
       .port-pair{height:155px;gap:6px}
-      .port-left>.cat-card,.port-right>.cat-card{height:215px}
+      .port-left>.cat-card,.port-right>.cat-card{height:250px}
     }
 
 
@@ -492,8 +495,8 @@
         <p>I would be happy to help you plan your perfect photo experience.</p>
         <div class="contact-details">
           <div class="contact-item"><div class="contact-icon">📍</div><div><span>Location</span><a href="#">Lancaster, PA</a></div></div>
-          <div class="contact-item"><div class="contact-icon">📸</div><div><span>Instagram</span><a href="https://www.instagram.com/khmarna_photographer/" target="_blank" rel="noopener">@khmarna_photographer</a></div></div>
-          <div class="contact-item"><div class="contact-icon">📘</div><div><span>Facebook</span><a href="https://www.facebook.com/people/Khmarna-Photography/61569986783839/" target="_blank" rel="noopener">Khmarna Photography</a></div></div>
+          <div class="contact-item"><div class="contact-icon contact-icon-ig"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.15" fill="#fff"/></svg></div><div><span>Instagram</span><a href="https://www.instagram.com/khmarna_photographer/" target="_blank" rel="noopener">@khmarna_photographer</a></div></div>
+          <div class="contact-item"><div class="contact-icon contact-icon-fb"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 8.5H13.8C13.14 8.5 12.6 9.04 12.6 9.7V11.3H15.5L15.1 14.2H12.6V21.5H9.5V14.2H7.5V11.3H9.5V9.4C9.5 7.24 11.24 5.5 13.4 5.5H15.5V8.5Z" fill="#fff"/></svg></div><div><span>Facebook</span><a href="https://www.facebook.com/people/Khmarna-Photography/61569986783839/" target="_blank" rel="noopener">Khmarna Photography</a></div></div>
         </div>
       </div>
       <div class="reveal">
