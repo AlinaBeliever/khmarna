@@ -932,7 +932,9 @@ const CAT_NAMES = {wedding:"Wedding",pregnancy:"Pregnancy",familykids:"Family & 
     });
   })();
 
-  function submitForm() {
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xlgyoqwe';
+
+  async function submitForm() {
     const name = document.querySelector('.contact-form input[placeholder="Name"]')?.value?.trim() || '';
     const last = document.querySelector('.contact-form input[placeholder="Surname"]')?.value?.trim() || '';
     const email = document.querySelector('.contact-form input[type="email"]')?.value?.trim() || '';
@@ -945,13 +947,41 @@ const CAT_NAMES = {wedding:"Wedding",pregnancy:"Pregnancy",familykids:"Family & 
       return;
     }
 
-    // Send to Formspree (replace with actual endpoint when ready)
-    // For now — show thank you and save to console
-    console.log('Form submission:', {name, last, email, phone, date, msg});
+    const btn = document.querySelector('.contact-form .btn-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    const fd = new FormData();
+    fd.append('First Name', name);
+    fd.append('Last Name', last);
+    fd.append('email', email);
+    fd.append('Phone', phone.trim());
+    if (date) fd.append('Preferred Date', date);
+    fd.append('message', msg);
+    fd.append('_subject', 'New inquiry from OksanaKhmarna.com');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: fd
+      });
+
+      if (!response.ok) {
+        showFormMsg('Something went wrong sending your message. Please try again or reach out on Instagram.', false);
+        return;
+      }
+    } catch (err) {
+      showFormMsg('Something went wrong sending your message. Please try again or reach out on Instagram.', false);
+      return;
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+    }
+
     showFormMsg("Thank you for your inquiry! I\u2019ll get back to you shortly. \u2764\uFE0F", true);
 
     // Reset form
     document.querySelector('.contact-form').querySelectorAll('input, textarea').forEach(el => { if(el.id !== 'phoneCode') el.value = ''; });
+    onDatePick();
   }
 
   function showFormMsg(text, success) {
